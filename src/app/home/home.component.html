@@ -4,12 +4,7 @@
   </div>
   <div class="item-right">
     <div class="search-input">
-      <input type="text" placeholder="search">
-      <a>
-        <span class="icon">
-          <i class="fa fa-lg fa-search"></i>
-        </span>
-      </a>
+      <input #query type="text" placeholder="search">
     </div>
     <div>
       <a (click)="small = !small">
@@ -21,12 +16,12 @@
   </div>
 </div>
 
-<div class="cards">
-
+<div class="cards" *ngIf="shots.length">
   <div class="card"
     [ngClass]="small ?  '' : 'image-only'"
-    *ngFor="let shot of shots"
+    *ngFor="let shot of (searchResult || shots)"
     (click)="showShotDetails(shot)">
+
     <div class="card-content" >
     <div class="media" *ngIf="small">
       <div class="media-left">
@@ -74,4 +69,16 @@
       </footer>
     </div>
   <button class="modal-close is-large" aria-label="close" (click)="modalContent = undefined"></button>
+</div>
+<div class="loadmore" *ngIf="!(this.searchResult && !this.searchResult.length) && this.shots.length">
+  <button class="button" (click)="loadMore()">Load more</button>
+</div>
+<div class="content has-text-centered	" *ngIf="(this.searchResult && !this.searchResult.length)">
+    <h1>Oh crap!</h1>
+    <p>No results were founded for {{query.value}}!</p>
+    <p>perhaps you want to load more shots? <a (click)="loadMore()">Load more</a></p>
+</div>
+
+<div class="loading" *ngIf="loading">
+    <img src="../../assets/loading.svg" alt="loading animation">
 </div>

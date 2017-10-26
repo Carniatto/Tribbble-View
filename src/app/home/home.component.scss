@@ -1,3 +1,5 @@
+$main-color: #389798;
+
 .cards {
   display: flex;
   justify-content: center;
@@ -63,4 +65,26 @@
       padding-right: 15px;
     }
   }
+}
+
+.loadmore {
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+.content {
+  h1 {
+    font-size: 4em;
+  }
+}
+
+.loading {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  background-color: rgba(black, 0.7);
 }
