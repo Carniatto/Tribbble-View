@@ -1,0 +1,29 @@
+<div class="cards" *ngIf="data.length">
+  <div class="card"
+    [class.image-only]="tileGrid"
+    *ngFor="let item of data"
+    (click)="onItemSelect(item)">
+
+    <div class="card-content" >
+    <div class="media" *ngIf="!tileGrid">
+      <div class="media-left">
+        <figure class="image">
+          <img [src]="item.images.teaser" alt="Placeholder image">
+        </figure>
+      </div>
+      <div class="media-content">
+        <p class="title is-4">{{item.title}}</p>
+        <p class="subtitle is-6">{{item.user.name}}</p>
+      </div>
+    </div>
+    <figure class="image is-4by3" *ngIf="tileGrid">
+      <img [src]="item.images.normal" alt="Placeholder image">
+    </figure>
+    </div>
+  </div>
+</div>
+<div class="content has-text-centered	" *ngIf="data && !data.length">
+    <h1>Oh crap!</h1>
+    <p>We tried searching in all loaded shots and...</p>
+    <p>...no results were founded!</p>
+</div>

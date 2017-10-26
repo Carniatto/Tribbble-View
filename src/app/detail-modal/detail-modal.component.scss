@@ -1,0 +1,15 @@
+.modal-card {
+  max-height: calc(100vh - 100px);
+
+  img {
+    padding-bottom: 15px;
+  }
+
+  .modal-card-title {
+    width: 100%;
+  }
+
+  .modal-card-foot {
+    padding: 0;
+  }
+}

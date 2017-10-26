@@ -1,84 +1,21 @@
-<div class="toolbar">
-  <div class="navbar-brand">
-      <h2 class="navbar-item">Tribbble View</h2>
-  </div>
-  <div class="item-right">
-    <div class="search-input">
-      <input #query type="text" placeholder="search">
-    </div>
-    <div>
-      <a (click)="small = !small">
-        <span class="icon">
-          <i class="fa fa-lg" [ngClass]="small ?  'fa-th-large' : 'fa-th-list'"></i>
-        </span>
-      </a>
-    </div>
-  </div>
-</div>
+<app-toolbar
+  (gridChange)="small = !small"
+  (search)="onSearch($event)"
+></app-toolbar>
 
-<div class="cards" *ngIf="shots.length">
-  <div class="card"
-    [ngClass]="small ?  '' : 'image-only'"
-    *ngFor="let shot of (searchResult || shots)"
-    (click)="showShotDetails(shot)">
+<app-card-view
+  *ngIf="shots.length"
+  [data]="searchResult || shots"
+  [tileGrid]='!small'
+  (itemSelect)='showShotDetails($event)'></app-card-view>
 
-    <div class="card-content" >
-    <div class="media" *ngIf="small">
-      <div class="media-left">
-        <figure class="image">
-          <img [src]="shot.images.teaser" alt="Placeholder image">
-        </figure>
-      </div>
-      <div class="media-content">
-        <p class="title is-4">{{shot.title}}</p>
-        <p class="subtitle is-6">{{shot.user.name}}</p>
-      </div>
-    </div>
-    <figure class="image is-4by3" *ngIf="!small">
-      <img [src]="shot.images.normal" alt="Placeholder image">
-    </figure>
-    </div>
-  </div>
-</div>
+<app-detail-modal
+  [modalContent]="modalContent"></app-detail-modal>
 
-<div class="modal is-active" *ngIf="modalContent">
-  <div class="modal-background" (click)="modalContent = undefined"></div>
-  <div class="modal-card">
-      <header class="modal-card-head">
-        <p class="modal-card-title">{{modalContent.title}}</p>
-      </header>
-      <section class="modal-card-body">
-        <p class="image is-4by3">
-          <img [src]="modalContent.images.hidpi || modalContent.images.normal" alt="">
-        </p>
-        <p [innerHTML]="modalContent.description"></p>
-      </section>
-      <footer class="modal-card-foot">
-        <div class="card-footer-item">
-          {{modalContent.views_count}}
-          <span class="icon">
-            <i class="fa fa-lg  fa-eye" ></i>
-          </span>
-        </div>
-        <div class="card-footer-item">
-          {{modalContent.likes_count}}
-          <span class="icon">
-            <i class="fa fa-lg fa-thumbs-o-up" ></i>
-          </span>
-        </div>
-      </footer>
-    </div>
-  <button class="modal-close is-large" aria-label="close" (click)="modalContent = undefined"></button>
-</div>
 <div class="loadmore" *ngIf="!(this.searchResult && !this.searchResult.length) && this.shots.length">
-  <button class="button" (click)="loadMore()">Load more</button>
-</div>
-<div class="content has-text-centered	" *ngIf="(this.searchResult && !this.searchResult.length)">
-    <h1>Oh crap!</h1>
-    <p>No results were founded for {{query.value}}!</p>
-    <p>perhaps you want to load more shots? <a (click)="loadMore()">Load more</a></p>
+<button class="button" (click)="loadMore()">Load more</button>
 </div>
 
 <div class="loading" *ngIf="loading">
-    <img src="../../assets/loading.svg" alt="loading animation">
+  <img src="assets/loading.svg" alt="loading animation">
 </div>

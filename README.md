@@ -1,27 +1,66 @@
-# DribbleView
+# Tribbble View
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.4.9.
 
-## Development server
+## Tribbble Name
+I decided to use this name for avoid issues with Dribbble [Terms and Guidelines](http://developer.dribbble.com/terms/)
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+So I picked Tribbble with "T" that ressambles the name Dribbble :)
 
-## Code scaffolding
+## Public API
+This application was developed using Dribbble public API
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+### This API allows:
+- retrieve shots sorted by popularity
+- retrieve shots details like views, comments and likes
+- perform pagination
 
-## Build
+### This API DOES NOT allow
+- login and act on behalf of users
+- like/dislike shots
+- perform server-side search on shots
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
+### Why I did not use authenticated API
+The authenticated API uses oAuth and in the process it was returning CORS errors. I tried to contact the support with no luck.
 
-## Running unit tests
+## What this Application includes
+- Listing of shots sorted by popularity
+- Toggling the image size using a button on toolbar
+- Details modal showing views and likes and more details
+- Search on loaded shots
+- Ability to load more on bottom
+- **(BONUS)** hosted [here](https://carniatto.github.io/Tribbble-View/) and works fine on mobile
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## Future improvements
+- Unit Testing (setup is ready)
+- Documentation using [Compodoc](https://compodoc.github.io/website/)
+- Improve usage using authenticated API
 
-## Running end-to-end tests
+## How to run
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+1. clone the repo
+```bash
+git clone https://github.com/Carniatto/Tribbble-View.git TribbbleView
+```
 
-## Further help
+2. install dependencies
+```bash
+cd TribbbleView
+npm install
+```
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+3. run the application
+```bash
+ng serve
+```
+
+4. access the application
+Open browser and access [http://localhost:4200](http://localhost:4200)
+
+## Author
+### **Mateus Carniatto**
+
+github: https://github.com/Carniatto
+
+codepen: https://codepen.io/Carniatto/
+
+LinkedIn: https://www.linkedin.com/in/carniatto/

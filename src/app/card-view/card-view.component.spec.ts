@@ -1,22 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { HttpClientModule } from '@angular/common/http';
 
-import { HomeComponent } from './home.component';
+import { CardViewComponent } from './card-view.component';
 
-describe('HomeComponent', () => {
-  let component: HomeComponent;
-  let fixture: ComponentFixture<HomeComponent>;
+describe('CardViewComponent', () => {
+  let component: CardViewComponent;
+  let fixture: ComponentFixture<CardViewComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [ HttpClientModule ],
-      declarations: [ HomeComponent ]
+      declarations: [ CardViewComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(HomeComponent);
+    fixture = TestBed.createComponent(CardViewComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

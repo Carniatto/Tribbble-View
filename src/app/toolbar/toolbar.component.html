@@ -1,0 +1,18 @@
+<div class="toolbar">
+  <h1 class="navbar-item title is-hidden-mobile">Tribbble View</h1>
+  <h2 class="navbar-item title is-hidden-tablet">Tribbble</h2>
+  <p class="navbar-item is-hidden-mobile">> shots by popularity</p>
+  <div class="item-right">
+    <div class="search-input">
+      <input #query type="search" placeholder="search"  (input)="onSearch(query.value)">
+    </div>
+    <div>
+      <a (click)="onGridChange()">
+        <span class="icon">
+          <i class="fa fa-lg" [ngClass]="!small ?  'fa-th-large' : 'fa-th-list'"></i>
+        </span>
+      </a>
+    </div>
+  </div>
+</div>
+<div class="spacer"></div>

@@ -1,0 +1,31 @@
+@import '../../styles.scss';
+
+:host {
+  text-align: center;
+}
+
+h1 {
+  font-size: 4em;
+  color: rgba($main-color, 0.6);
+}
+
+p {
+  font-size: 2em;
+  color: darkgray
+}
+
+div {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+a {
+  color: rgba($main-color, 0.6);
+  &:hover {
+    color: $main-color;
+  }
+}
