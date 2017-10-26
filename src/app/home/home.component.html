@@ -1,0 +1,77 @@
+<div class="toolbar">
+  <div class="navbar-brand">
+      <h2 class="navbar-item">Tribbble View</h2>
+  </div>
+  <div class="item-right">
+    <div class="search-input">
+      <input type="text" placeholder="search">
+      <a>
+        <span class="icon">
+          <i class="fa fa-lg fa-search"></i>
+        </span>
+      </a>
+    </div>
+    <div>
+      <a (click)="small = !small">
+        <span class="icon">
+          <i class="fa fa-lg" [ngClass]="small ?  'fa-th-large' : 'fa-th-list'"></i>
+        </span>
+      </a>
+    </div>
+  </div>
+</div>
+
+<div class="cards">
+
+  <div class="card"
+    [ngClass]="small ?  '' : 'image-only'"
+    *ngFor="let shot of shots"
+    (click)="showShotDetails(shot)">
+    <div class="card-content" >
+    <div class="media" *ngIf="small">
+      <div class="media-left">
+        <figure class="image">
+          <img [src]="shot.images.teaser" alt="Placeholder image">
+        </figure>
+      </div>
+      <div class="media-content">
+        <p class="title is-4">{{shot.title}}</p>
+        <p class="subtitle is-6">{{shot.user.name}}</p>
+      </div>
+    </div>
+    <figure class="image is-4by3" *ngIf="!small">
+      <img [src]="shot.images.normal" alt="Placeholder image">
+    </figure>
+    </div>
+  </div>
+</div>
+
+<div class="modal is-active" *ngIf="modalContent">
+  <div class="modal-background" (click)="modalContent = undefined"></div>
+  <div class="modal-card">
+      <header class="modal-card-head">
+        <p class="modal-card-title">{{modalContent.title}}</p>
+      </header>
+      <section class="modal-card-body">
+        <p class="image is-4by3">
+          <img [src]="modalContent.images.hidpi || modalContent.images.normal" alt="">
+        </p>
+        <p [innerHTML]="modalContent.description"></p>
+      </section>
+      <footer class="modal-card-foot">
+        <div class="card-footer-item">
+          {{modalContent.views_count}}
+          <span class="icon">
+            <i class="fa fa-lg  fa-eye" ></i>
+          </span>
+        </div>
+        <div class="card-footer-item">
+          {{modalContent.likes_count}}
+          <span class="icon">
+            <i class="fa fa-lg fa-thumbs-o-up" ></i>
+          </span>
+        </div>
+      </footer>
+    </div>
+  <button class="modal-close is-large" aria-label="close" (click)="modalContent = undefined"></button>
+</div>

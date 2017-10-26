@@ -1,0 +1,66 @@
+.cards {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.card {
+  width: 100%;
+  max-width: 600px;
+  margin-bottom: 15px;
+  margin-left: 15px;
+
+  img {
+    max-width: 400px;
+    height: auto;
+    margin: auto;
+  }
+
+  &.image-only {
+    max-width: 450px;
+  }
+}
+.modal-card {
+  img {
+    padding-bottom: 15px;
+  }
+
+  .modal-card-foot {
+    padding: 0;
+  }
+}
+
+.toolbar {
+  display: flex;
+  margin-bottom: 15px;
+
+  .icon {
+    color: lightgray;
+    &:hover {
+      color: black;
+    }
+  }
+
+  .search-input {
+    color: lightgray;
+    input {
+      padding: 3px;
+      border: none;
+      border-bottom: 1px solid lightgray;
+      text-align: right;
+      font-size: 15px;
+      &:focus {
+        outline: none;
+      }
+    }
+  }
+
+  .item-right {
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+    div {
+      padding-right: 15px;
+    }
+  }
+}
